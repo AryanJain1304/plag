@@ -7,7 +7,7 @@ console.log("⏳ Preparing reference data for plagiarism checker...");
 
 function prepareData() {
     return new Promise((resolve, reject) => {
-        execFile('python', ['prepare_data.py'], (error, stdout, stderr) => {
+        execFile('python3', ['prepare_data.py'], (error, stdout, stderr) => {
             if (error) {
                 console.error(` Error preparing data: ${stderr}`);
                 return reject(error);
@@ -31,7 +31,7 @@ router.post('/', (req, res) => {
         return res.status(400).json({ error: 'No text provided.' });
     }
 
-    execFile('python', ['plagiarism_check.py', userText], (error, stdout, stderr) => {
+    execFile('python3', ['plagiarism_check.py', userText], (error, stdout, stderr) => {
         if (error) {
             console.error(` Error checking plagiarism: ${stderr}`);
             return res.status(500).json({ error: 'Internal Server Error' });

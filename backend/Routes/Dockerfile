@@ -1,20 +1,18 @@
-# Use a Python base image with TensorFlow support
+# Base image with Python 3.8 and pip
 FROM python:3.8-slim
 
-# Set the working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Copy the requirements.txt file to the container
+# Copy requirements and install Python dependencies
 COPY requirements.txt .
-
-# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the Python files and models into the container
+# Copy the rest of the code (Python scripts, models, etc.)
 COPY . .
 
-# Expose a port for the service (if you plan to run it as an HTTP service)
+# Optional: expose a port if you run this as a microservice
 EXPOSE 5001
 
-# Define the default command to run the plagiarism check script
+# Default command (you can override this in docker-compose if needed)
 CMD ["python", "plagiarism_check.py"]
