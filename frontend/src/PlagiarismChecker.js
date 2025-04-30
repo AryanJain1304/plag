@@ -59,7 +59,7 @@ const PlagiarismChecker = () => {
         setError(null);
         setResult(null);
         try {
-            const response = await axios.post('http://localhost:5000/api/plagiarism', { text });
+            const response = await axios.post('http://backend:5000/api/plagiarism', { text });
             console.log(response)
             setResult(response.data); // instead of response.data
 
