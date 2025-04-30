@@ -19,7 +19,6 @@ services:
       - MONGO_URI=mongodb://mongo:27017/plagshield
     depends_on:
       - mongo
-      - plagiarism-checker  # Ensure server waits for Python service
 
   mongo:
     image: mongo:6
@@ -27,19 +26,6 @@ services:
       - "27017:27017"
     volumes:
       - mongo-data:/data/db
-
-  plagiarism-checker:
-    build:
-      context: .
-      dockerfile: plagiarism-checker/Dockerfile  # Path to the Python Dockerfile
-    volumes:
-      - ./plagiarism-checker:/app  # Mount the plagiarism-checker directory
-    expose:
-      - "5001"  # Exposing port if needed
-    environment:
-      - MODEL_PATH=/app/models  # Path to model files
-    depends_on:
-      - mongo
 
 volumes:
   mongo-data:
