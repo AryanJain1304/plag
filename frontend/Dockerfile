@@ -1,9 +1,9 @@
 # client/Dockerfile
 FROM node:18-alpine as build
 WORKDIR /app
-COPY client/package.json client/package-lock.json ./
+COPY frontend/package.json client/package-lock.json ./
 RUN npm install
-COPY client/ .
+COPY frontend/ .
 RUN npm run build
 
 FROM nginx:stable-alpine
