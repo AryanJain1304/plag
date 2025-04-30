@@ -6,7 +6,8 @@
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "express-validator": "^7.2.1",
-    "mongoose": "^1.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.6.3",
     "react-router-dom": "^7.5.3"
   },
   "name": "plagshield",
