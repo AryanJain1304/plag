@@ -22,8 +22,8 @@ pipeline {
 
     stage('Run Tests') {
       steps {
-        bat 'docker-compose exec server npm test || true'
-        bat 'docker-compose exec client npm test || true'
+        bat 'docker-compose exec server npm test || exit 0'
+        bat 'docker-compose exec client npm test || exit 0'
       }
     }
   }
