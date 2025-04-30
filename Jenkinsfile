@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Clone repo') {
       steps {
-        git branch: 'main', url: 'https://github.com/AryanJain1304/plag.git'
+        git branch: 'main', url: 'https://github.com/AryanJain1304/plag1.git'
       }
     }
 
