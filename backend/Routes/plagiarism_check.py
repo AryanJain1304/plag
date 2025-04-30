@@ -11,7 +11,7 @@ reference_sentences = pickle.load(open('reference_sentences.pkl', 'rb'))
 reference_vectors = pickle.load(open('reference_vectors.pkl', 'rb'))
 vector_size = w2v_model.vector_size
 
-threshold = 0.5
+threshold = 0.6500
 
 @tf.function(reduce_retracing=True)
 def predict_lstm(input_tensor):
